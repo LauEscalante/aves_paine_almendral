@@ -2,7 +2,7 @@
 
 Proyecto final del curso *Visualización de datos medioambientales con R*.
 
-Análisis de la comunidad de aves de un predio agrícola de paltos y almendros en Paine (Región Metropolitana, Chile), a partir de un conjunto de datos públicos. Aún no tengo datos de tesis, así que uso este dataset externo como la aproximación más cercana a un trabajo real de monitoreo.
+Análisis de la comunidad de aves de un predio agrícola de paltos y almendros en Paine (Región Metropolitana, Chile), a partir de un conjunto de datos públicos. 
 
 **Los datos son reales y no fueron generados por mí ni por IA.** Pertenecen a sus autores y se usan con fines académicos.
 
