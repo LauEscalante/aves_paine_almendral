@@ -1,0 +1,26 @@
+{
+    "id": "AAEDA031",
+    "path": "~/SEMESTRE_I_UC/visualizacion_datos_medioambientales/bird_monitoring_paine/scripts/03_datos_ausentes.R",
+    "project_path": "scripts/03_datos_ausentes.R",
+    "type": "r_source",
+    "hash": "1600888182",
+    "contents": "",
+    "dirty": false,
+    "created": 1790621435967.0,
+    "source_on_save": true,
+    "relative_order": 4,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "31,0",
+        "scrollLine": "14"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1790643291,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1790643291450,
+    "read_only": false,
+    "read_only_alternatives": []
+}

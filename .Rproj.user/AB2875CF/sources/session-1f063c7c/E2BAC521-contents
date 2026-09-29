@@ -1,0 +1,41 @@
+
+
+print(top_especies)
+
+fig_top <- ggplot(top_especies,
+                  aes(x = individuos, y = fct_reorder(species, individuos),
+                      fill = origen)) +
+  geom_col() +
+  labs(
+    title = "Las 10 especies mas abundantes",
+    x = "Individuos registrados", y = NULL, fill = "Origen",
+    caption = "Fuente: Alvarado et al. (2021), GBIF"
+  ) +
+  theme_minimal()
+
+ggsave(here("figuras", "01_top_especies_abundancia.png"),
+       fig_top, width = 8, height = 5, dpi = 300)
+
+# 2. Como cambia la riqueza entre monitoreos? ----------------------------------
+riqueza <- aves |>
+  group_by(monitoreo) |>
+  summarise(
+    especies = n_distinct(species),
+    individuos = sum(individualCount),
+    .groups = "drop"
+  )
+
+print(riqueza)
+
+fig_riqueza <- ggplot(riqueza, aes(x = monitoreo, y = especies)) +
+  geom_col() +
+  labs(
+    title = "Especies registradas por monitoreo",
+    x = "Monitoreo (M1 = dic 2019, M8 = sep 2020)",
+    y = "Numero de especies",
+    caption = "Ojo: el metodo de muestreo cambio a mitad del estudio"
+  ) +
+  theme_minimal()
+
+ggsave(here("figuras", "02_riqueza_por_monitoreo.png"),
+       fig_riqueza, width = 8, height = 5, dpi = 300)
