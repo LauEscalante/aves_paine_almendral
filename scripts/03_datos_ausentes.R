@@ -29,3 +29,4 @@ vis_miss(aves_crudo)
 # Guardar resumen -----------------------------------------------------------
 dir.create(here("resultados"), showWarnings = FALSE)
 write_csv(resumen_na, here("resultados", "aves_paine_resumen_na.csv"))
+

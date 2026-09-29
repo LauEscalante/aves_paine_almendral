@@ -50,3 +50,5 @@ fig_riqueza <- ggplot(riqueza, aes(x = monitoreo, y = especies)) +
 
 ggsave(here("figuras", "02_riqueza_por_monitoreo.png"),
        fig_riqueza, width = 8, height = 5, dpi = 300)
+print(fig_top)
+print(fig_riqueza)

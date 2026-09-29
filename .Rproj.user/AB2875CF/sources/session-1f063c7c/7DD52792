@@ -3,7 +3,7 @@
     "path": "~/SEMESTRE_I_UC/visualizacion_datos_medioambientales/bird_monitoring_paine/scripts/02_eda.R",
     "project_path": "scripts/02_eda.R",
     "type": "r_source",
-    "hash": "1289866427",
+    "hash": "3161135058",
     "contents": "",
     "dirty": false,
     "created": 1790621666969.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "0,0",
-        "scrollLine": "0"
+        "cursorPosition": "54,0",
+        "scrollLine": "37"
     },
     "folds": "",
-    "lastKnownWriteTime": 1790643201,
+    "lastKnownWriteTime": 1790648563,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1790643201150,
+    "last_content_update": 1790648563109,
     "read_only": false,
     "read_only_alternatives": []
 }
