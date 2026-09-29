@@ -2,7 +2,7 @@
 
 Proyecto final del curso *Visualización de datos medioambientales con R*.
 
-Análisis de la comunidad de aves de un predio agrícola de paltos y almendros en Paine (Región Metropolitana, Chile), a partir de un conjunto de datos públicos. Aún no tengo datos de tesis, así que uso este dataset externo como la aproximación más cercana a un trabajo real de monitoreo.
+Análisis de la comunidad de aves de un predio agrícola de paltos y almendros en Paine (Región Metropolitana, Chile), a partir de un conjunto de datos públicos. 
 
 **Los datos son reales y no fueron generados por mí ni por IA.** Pertenecen a sus autores y se usan con fines académicos.
 
@@ -30,15 +30,6 @@ Alvarado Orellana S A, Santander Zapata F J, Figueroa Rojas R A, Flores Meza S P
 1. `01_limpieza.R`: lectura, chequeos y limpieza de los datos crudos
 2. `02_eda.R`: análisis exploratorio (especies más abundantes, riqueza por monitoreo)
 3. `03_datos_ausentes.R`: resumen y visualización de datos ausentes
-
-## Decisiones sobre los datos
-
-*(se irá completando durante el semestre)*
-
-- Las columnas totalmente vacías (coordenadas, elevación, etc.) son ausencias estructurales: las coordenadas fueron resguardadas por los autores (`informationWithheld`), no perdidas.
-- Los monitoreos de junio y julio 2020 se cancelaron por restricciones sanitarias (COVID-19): ausencia tipo MCAR, no depende de las aves.
-- El punto U7 se perdió por tala tras M4 (reemplazado por U11 desde M5); los puntos E se redujeron de 6 a 3 desde M3; los puntos N solo se muestrearon en M5, M7 y M8. Por eso las comparaciones se hacen dentro de un mismo método y, cuando corresponde, dentro del mismo rango de monitoreos.
-- No se eliminan filas por datos ausentes: las columnas estructurales se excluyen del análisis pero el archivo crudo no se modifica; los datos existentes se conservan siempre.
 
 ## Estado del proyecto
 
