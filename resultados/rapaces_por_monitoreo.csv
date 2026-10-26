@@ -1,0 +1,145 @@
+species,monitoreo,individuos,fecha,mes_anio,etiqueta
+Bubo magellanicus,M1,0,2019-12-27,dic 2019,"M1
+dic 2019"
+Bubo magellanicus,M2,0,2020-01-25,ene 2020,"M2
+ene 2020"
+Bubo magellanicus,M3,0,2020-02-29,feb 2020,"M3
+feb 2020"
+Bubo magellanicus,M4,0,2020-03-28,mar 2020,"M4
+mar 2020"
+Bubo magellanicus,M5,1,2020-05-01,may 2020,"M5
+may 2020"
+Bubo magellanicus,M6,0,2020-06-01,jun 2020,"M6
+jun 2020"
+Bubo magellanicus,M7,0,2020-08-28,ago 2020,"M7
+ago 2020"
+Bubo magellanicus,M8,2,2020-10-01,oct 2020,"M8
+oct 2020"
+Falco sparverius,M1,3,2019-12-27,dic 2019,"M1
+dic 2019"
+Falco sparverius,M2,3,2020-01-25,ene 2020,"M2
+ene 2020"
+Falco sparverius,M3,0,2020-02-29,feb 2020,"M3
+feb 2020"
+Falco sparverius,M4,0,2020-03-28,mar 2020,"M4
+mar 2020"
+Falco sparverius,M5,1,2020-05-01,may 2020,"M5
+may 2020"
+Falco sparverius,M6,0,2020-06-01,jun 2020,"M6
+jun 2020"
+Falco sparverius,M7,0,2020-08-28,ago 2020,"M7
+ago 2020"
+Falco sparverius,M8,1,2020-10-01,oct 2020,"M8
+oct 2020"
+Geranoaetus melanoleucus,M1,1,2019-12-27,dic 2019,"M1
+dic 2019"
+Geranoaetus melanoleucus,M2,3,2020-01-25,ene 2020,"M2
+ene 2020"
+Geranoaetus melanoleucus,M3,6,2020-02-29,feb 2020,"M3
+feb 2020"
+Geranoaetus melanoleucus,M4,4,2020-03-28,mar 2020,"M4
+mar 2020"
+Geranoaetus melanoleucus,M5,4,2020-05-01,may 2020,"M5
+may 2020"
+Geranoaetus melanoleucus,M6,2,2020-06-01,jun 2020,"M6
+jun 2020"
+Geranoaetus melanoleucus,M7,3,2020-08-28,ago 2020,"M7
+ago 2020"
+Geranoaetus melanoleucus,M8,4,2020-10-01,oct 2020,"M8
+oct 2020"
+Geranoaetus polyosoma,M1,0,2019-12-27,dic 2019,"M1
+dic 2019"
+Geranoaetus polyosoma,M2,1,2020-01-25,ene 2020,"M2
+ene 2020"
+Geranoaetus polyosoma,M3,0,2020-02-29,feb 2020,"M3
+feb 2020"
+Geranoaetus polyosoma,M4,0,2020-03-28,mar 2020,"M4
+mar 2020"
+Geranoaetus polyosoma,M5,0,2020-05-01,may 2020,"M5
+may 2020"
+Geranoaetus polyosoma,M6,0,2020-06-01,jun 2020,"M6
+jun 2020"
+Geranoaetus polyosoma,M7,0,2020-08-28,ago 2020,"M7
+ago 2020"
+Geranoaetus polyosoma,M8,2,2020-10-01,oct 2020,"M8
+oct 2020"
+Glaucidium nana,M1,0,2019-12-27,dic 2019,"M1
+dic 2019"
+Glaucidium nana,M2,1,2020-01-25,ene 2020,"M2
+ene 2020"
+Glaucidium nana,M3,0,2020-02-29,feb 2020,"M3
+feb 2020"
+Glaucidium nana,M4,0,2020-03-28,mar 2020,"M4
+mar 2020"
+Glaucidium nana,M5,5,2020-05-01,may 2020,"M5
+may 2020"
+Glaucidium nana,M6,0,2020-06-01,jun 2020,"M6
+jun 2020"
+Glaucidium nana,M7,6,2020-08-28,ago 2020,"M7
+ago 2020"
+Glaucidium nana,M8,1,2020-10-01,oct 2020,"M8
+oct 2020"
+Milvago chimango,M1,0,2019-12-27,dic 2019,"M1
+dic 2019"
+Milvago chimango,M2,2,2020-01-25,ene 2020,"M2
+ene 2020"
+Milvago chimango,M3,3,2020-02-29,feb 2020,"M3
+feb 2020"
+Milvago chimango,M4,7,2020-03-28,mar 2020,"M4
+mar 2020"
+Milvago chimango,M5,1,2020-05-01,may 2020,"M5
+may 2020"
+Milvago chimango,M6,2,2020-06-01,jun 2020,"M6
+jun 2020"
+Milvago chimango,M7,1,2020-08-28,ago 2020,"M7
+ago 2020"
+Milvago chimango,M8,0,2020-10-01,oct 2020,"M8
+oct 2020"
+Parabuteo unicinctus,M1,5,2019-12-27,dic 2019,"M1
+dic 2019"
+Parabuteo unicinctus,M2,1,2020-01-25,ene 2020,"M2
+ene 2020"
+Parabuteo unicinctus,M3,4,2020-02-29,feb 2020,"M3
+feb 2020"
+Parabuteo unicinctus,M4,3,2020-03-28,mar 2020,"M4
+mar 2020"
+Parabuteo unicinctus,M5,1,2020-05-01,may 2020,"M5
+may 2020"
+Parabuteo unicinctus,M6,2,2020-06-01,jun 2020,"M6
+jun 2020"
+Parabuteo unicinctus,M7,2,2020-08-28,ago 2020,"M7
+ago 2020"
+Parabuteo unicinctus,M8,0,2020-10-01,oct 2020,"M8
+oct 2020"
+Tyto alba,M1,0,2019-12-27,dic 2019,"M1
+dic 2019"
+Tyto alba,M2,0,2020-01-25,ene 2020,"M2
+ene 2020"
+Tyto alba,M3,0,2020-02-29,feb 2020,"M3
+feb 2020"
+Tyto alba,M4,0,2020-03-28,mar 2020,"M4
+mar 2020"
+Tyto alba,M5,1,2020-05-01,may 2020,"M5
+may 2020"
+Tyto alba,M6,0,2020-06-01,jun 2020,"M6
+jun 2020"
+Tyto alba,M7,1,2020-08-28,ago 2020,"M7
+ago 2020"
+Tyto alba,M8,0,2020-10-01,oct 2020,"M8
+oct 2020"
+Vultur gryphus,M1,1,2019-12-27,dic 2019,"M1
+dic 2019"
+Vultur gryphus,M2,1,2020-01-25,ene 2020,"M2
+ene 2020"
+Vultur gryphus,M3,0,2020-02-29,feb 2020,"M3
+feb 2020"
+Vultur gryphus,M4,0,2020-03-28,mar 2020,"M4
+mar 2020"
+Vultur gryphus,M5,1,2020-05-01,may 2020,"M5
+may 2020"
+Vultur gryphus,M6,0,2020-06-01,jun 2020,"M6
+jun 2020"
+Vultur gryphus,M7,0,2020-08-28,ago 2020,"M7
+ago 2020"
+Vultur gryphus,M8,5,2020-10-01,oct 2020,"M8
+oct 2020"
