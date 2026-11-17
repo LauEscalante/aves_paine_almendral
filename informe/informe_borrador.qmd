@@ -2,23 +2,37 @@
 title: "Aves de un huerto de paltos y almendros en Paine: quién domina y qué rapaces hay"
 subtitle: "Borrador 1 del proyecto final (AGP3141)"
 author: "Laura Escalante"
+date: last-modified
+date-format: long
 lang: es
+bibliography: referencias.bib
+number-sections: true
+toc: true
+toc-title: "Contenido"
 format:
   html:
     embed-resources: true
-    toc: false
+    theme: cosmo
+    code-fold: true
+    code-summary: "Ver código"
+    code-tools: true
+    lightbox: true
+    echo: true
+  docx:
+    echo: false
   typst:
     papersize: a4
     margin:
       x: 2.5cm
       y: 2.5cm
+    echo: false
 execute:
-  echo: false
   warning: false
   message: false
 ---
 
 ```{r}
+#| include: false
 library(tidyverse)
 library(here)
 library(knitr)
@@ -62,7 +76,7 @@ min_intro <- intro_u %>% slice_min(pct, n = 1)
 
 ## Introducción
 
-Las plagas de roedores causan pérdidas en la producción agrícola, y las aves rapaces ofrecen una forma ecológica de reducirlas que, además, mantiene la biodiversidad local. Por eso el Proyecto GEF Montaña del Ministerio del Medio Ambiente fomenta el control de plagas con rapaces en predios agrícolas. Este informe analiza los datos de aves de uno de esos predios, El Almendral, un huerto de paltos y almendros en Paine (Alvarado Orellana et al. 2021, GBIF, licencia CC BY 4.0).
+Las plagas de roedores causan pérdidas en la producción agrícola, y las aves rapaces ofrecen una forma ecológica de reducirlas que, además, mantiene la biodiversidad local. Por eso el Proyecto GEF Montaña del Ministerio del Medio Ambiente fomenta el control de plagas con rapaces en predios agrícolas. Este informe analiza los datos de aves de uno de esos predios, El Almendral, un huerto de paltos y almendros en Paine [@alvarado2021]. Los datos son públicos (GBIF, licencia CC BY 4.0).
 
 ## Resumen
 
@@ -79,9 +93,22 @@ El huerto sí cuenta con rapaces: se registraron `r n_rap_esp` especies, que sum
 
 ## Datos y diseño de muestreo
 
-El conjunto contiene `r nrow(aves)` registros de `r n_esp` especies (`r n_rap_esp` rapaces y `r n_esp - n_rap_esp` no rapaces), con `r total_ind` individuos en `r n_mon` monitoreos entre diciembre de 2019 y octubre de 2020. Se usaron tres métodos de muestreo, y el esfuerzo cambió durante el estudio (puntos, radio y tiempo), por lo que los monitoreos solo se comparan dentro de un mismo método.
+El conjunto contiene `r nrow(aves)` registros de `r n_esp` especies (`r n_rap_esp` rapaces y `r n_esp - n_rap_esp` no rapaces), con `r total_ind` individuos en `r n_mon` monitoreos entre diciembre de 2019 y octubre de 2020. Se usaron tres métodos de muestreo (@tbl-metodos), y el esfuerzo cambió durante el estudio (puntos, radio y tiempo). Las fechas y el tamaño de cada monitoreo se resumen en la @tbl-monitoreos.
+
+::: {.callout-note}
+## Cómo leer las comparaciones
+Como el esfuerzo cambió, los monitoreos solo se comparan dentro de un mismo método. El método U[^metodo-u] es el único presente en los ocho monitoreos.
+:::
+
+[^metodo-u]: Censos de aves no rapaces diurnas, dentro de la plantación.
+
+::: {.panel-tabset}
+
+### Por método
 
 ```{r}
+#| label: tbl-metodos
+#| tbl-cap: "Registros, individuos, especies y monitoreos por método de muestreo."
 aves %>%
   mutate(metodo = case_when(
     metodo == "U" ~ "U: aves no rapaces, dentro de la plantación",
@@ -100,9 +127,11 @@ aves %>%
   kable(col.names = c("Método", "Registros", "Individuos", "Especies", "Monitoreos"))
 ```
 
-*Tabla 1. Registros, individuos, especies y monitoreos por método de muestreo.*
+### Por monitoreo
 
 ```{r}
+#| label: tbl-monitoreos
+#| tbl-cap: "Fecha, individuos y especies registradas en cada monitoreo, con todos los métodos juntos."
 aves %>%
   group_by(monitoreo) %>%
   summarise(
@@ -115,34 +144,52 @@ aves %>%
   kable(col.names = c("Monitoreo", "Fecha", "Individuos", "Especies (todos los métodos)"))
 ```
 
-*Tabla 2. Fecha, individuos y especies registradas en cada monitoreo, con todos los métodos juntos.*
+:::
+
+## Esfuerzo de muestreo
+
+La tabla de eventos del archivo original registra cada visita a un punto: son 122 eventos, y 112 de ellos tienen aves. Los 10 restantes (siete del método E y tres del N) son visitas sin registros, que no aparecen en la tabla de ocurrencias y que se recuperan al unir ambas tablas. Los puntos del método U siempre tuvieron aves.
+
+El esfuerzo cambió durante el estudio. En el método U, los primeros tres monitoreos usaron un radio de 200 m y 10 minutos por punto, y desde M4 pasaron a 50 m y 5 minutos. Además, el punto U7 se dejó de visitar después de M4 y fue reemplazado por U11 desde M5. Los puntos del método E fueron seis en M1 y M2, y tres en los monitoreos siguientes. Las rapaces nocturnas (N) solo se buscaron en M5, M7 y M8, y en nueve de esas 12 visitas hubo al menos un registro (@fig-esfuerzo).
+
+![Número de eventos de muestreo por método y monitoreo. En cada celda se indica cuántos eventos tuvieron aves sobre el total de eventos; las celdas grises son monitoreos en que el método no se usó.](../figuras/04_esfuerzo_muestreo.png){#fig-esfuerzo fig-alt="Mapa de calor del número de eventos de muestreo por método (U, N y E) y monitoreo (M1 a M8). El método U tiene 10 de 10 eventos con aves en todos los monitoreos; el N solo se usó en M5, M7 y M8; el E tuvo 6 eventos en M1 y M2 y 3 en los siguientes."}
 
 ## Hallazgo 1: la especie más abundante es introducida
 
-La especie más abundante es la paloma doméstica (*`r primera$species`*, `r primera$origen`), con `r primera$ind` individuos, seguida de cerca por un tordo nativo (*`r segunda$species`*, `r segunda$origen`), con `r segunda$ind`. En total, las especies introducidas son el `r fmt(pct_intro, 1)` % de los individuos, y las rapaces apenas el `r fmt(pct_rap)` %.
+La especie más abundante es la paloma doméstica (*`r primera$species`*, `r primera$origen`), con `r primera$ind` individuos, seguida de cerca por un tordo nativo (*`r segunda$species`*, `r segunda$origen`), con `r segunda$ind`. En total, las especies introducidas son el `r fmt(pct_intro, 1)` % de los individuos, y las rapaces apenas el `r fmt(pct_rap)` % (@fig-dominancia).
 
-![Figura 1. Las diez especies con más individuos en los ocho monitoreos, según origen (nativa o introducida). La paloma doméstica, introducida, es la más abundante y la sigue de cerca una especie nativa.](../figuras/01_dominancia.png)
+![Las diez especies con más individuos en los ocho monitoreos, según origen (nativa o introducida). La paloma doméstica, introducida, es la más abundante y la sigue de cerca una especie nativa.](../figuras/01_dominancia.png){#fig-dominancia fig-alt="Gráfico de barras horizontales con las diez especies más abundantes. Columba livia, introducida, encabeza el ranking, seguida de Curaeus curaeus, nativa. Callipepla californica es la otra especie introducida entre las diez."}
 
-Dentro de la plantación (método U), la proporción de individuos introducidos varía entre monitoreos: va de `r fmt(min_intro$pct, 0)` % en `r min_intro$monitoreo` a `r fmt(max_intro$pct, 0)` % en `r max_intro$monitoreo`. Es decir, los introducidos llegan a cerca de la mitad de los individuos en un monitoreo y no aparecen en otro. Como cada monitoreo tiene pocos individuos, conviene mirar el tamaño de muestra (n) de cada punto.
+Dentro de la plantación (método U), la proporción de individuos introducidos varía entre monitoreos: va de `r fmt(min_intro$pct, 0)` % en `r min_intro$monitoreo` a `r fmt(max_intro$pct, 0)` % en `r max_intro$monitoreo` (@fig-introducidas). Es decir, los introducidos llegan a cerca de la mitad de los individuos en un monitoreo y no aparecen en otro. Como cada monitoreo tiene pocos individuos, conviene mirar el tamaño de muestra (n) de cada punto.
 
-![Figura 2. Porcentaje de individuos introducidos en cada monitoreo, método U (dentro de la plantación). Bajo cada punto se indica el mes y el número de individuos (n) de ese monitoreo.](../figuras/02_introducidas_por_monitoreo.png)
+![Porcentaje de individuos introducidos en cada monitoreo, método U (dentro de la plantación). Bajo cada punto se indica el mes y el número de individuos (n) de ese monitoreo.](../figuras/02_introducidas_por_monitoreo.png){#fig-introducidas fig-alt="Gráfico de líneas con el porcentaje de individuos introducidos por monitoreo en el método U: 8 % en M1, 30 % en M2, 26 % en M3, 44 % en M4, 25 % en M5, 15 % en M6, 0 % en M7 y 14 % en M8."}
 
 ## Hallazgo 2: qué rapaces aparecen y cuándo
 
-Se registraron `r n_rap_esp` especies de rapaces. La única presente en los ocho monitoreos es *`r rap_top$species`* (`r rap_top$monitoreos` de `r n_mon`), con `r rap_top$ind` individuos. Las rapaces nocturnas solo tienen registros en `r n_nocturnas_mon` monitoreos (M5, M7 y M8); sin la tabla de eventos no sabemos si se buscaron en los demás, así que su ausencia no significa que no estuvieran.
+Se registraron `r n_rap_esp` especies de rapaces. La única presente en los ocho monitoreos es *`r rap_top$species`* (`r rap_top$monitoreos` de `r n_mon`), con `r rap_top$ind` individuos. Las rapaces nocturnas solo tienen registros en `r n_nocturnas_mon` monitoreos (M5, M7 y M8); según la tabla de eventos, solo se buscaron en esos tres, así que en los demás monitoreos no hubo muestreo y no corresponde hablar de ausencia.
 
-Entre las rapaces diurnas hay un recambio durante el año. *Parabuteo unicinctus* (13 de sus 18 individuos) y *Milvago chimango* (12 de 16) se registran sobre todo entre M1 y M4, *Geranoaetus melanoleucus* se mantiene en todos los monitoreos, y *Vultur gryphus* se concentra en M8 (5 de 8 individuos). Son pocos individuos por celda, así que es un patrón para revisar con la tabla de eventos y no una conclusión.
+Entre las rapaces diurnas hay un recambio durante el año. *Parabuteo unicinctus* (13 de sus 18 individuos) y *Milvago chimango* (12 de 16) se registran sobre todo entre M1 y M4, *Geranoaetus melanoleucus* se mantiene en todos los monitoreos, y *Vultur gryphus* se concentra en M8 (5 de 8 individuos). Son pocos individuos por celda, así que hay que leerlo como un patrón y no como una conclusión, sobre todo porque en M1 y M2 hubo el doble de puntos de rapaces diurnas que después (@fig-rapaces).
 
-![Figura 3. Rapaces por especie y monitoreo, con todos los métodos. Cada celda muestra el número de individuos; las celdas en blanco son ceros y, mientras más azul, más individuos. Las rapaces nocturnas solo tienen registros en M5, M7 y M8.](../figuras/03_rapaces_por_monitoreo.png)
+![Rapaces por especie y monitoreo, con todos los métodos. Cada celda muestra el número de individuos; las celdas en blanco son ceros y, mientras más azul, más individuos. Las rapaces nocturnas solo tienen registros en M5, M7 y M8.](../figuras/03_rapaces_por_monitoreo.png){#fig-rapaces fig-alt="Mapa de calor con el número de individuos de nueve especies de rapaces por monitoreo. Geranoaetus melanoleucus aparece en los ocho monitoreos. Bubo magellanicus y Tyto alba solo tienen registros en M5, M7 y M8."}
 
 ## Discusión
 
 El análisis sugiere que el huerto tiene una comunidad de aves dominada por especies comunes y en parte introducidas, con rapaces presentes pero poco numerosas. Estos resultados son descriptivos: no hay datos de presas ni de plagas, así que no se puede evaluar si las rapaces controlan efectivamente los roedores.
 
-Además, el esfuerzo de muestreo cambió durante el estudio y la tabla de eventos (con los monitoreos sin aves) no está incorporada, por lo que no es posible distinguir un cero real de un monitoreo sin esfuerzo. Por eso las comparaciones se hicieron dentro de un mismo método.
+::: {.callout-warning}
+## Esfuerzo de muestreo desigual
+El esfuerzo cambió durante el estudio (radio y tiempo en el método U, número de puntos en el E). En particular, la @fig-introducidas junta monitoreos con distinto esfuerzo, así que sus diferencias pueden deberse en parte al método de conteo.
+:::
+
+Gracias a la tabla de eventos se distingue un cero real de un monitoreo sin esfuerzo, y por eso las comparaciones se hicieron dentro de un mismo método.
 
 ## Conclusión
 
 Este primer borrador describe la comunidad de aves de un huerto de paltos y almendros de Paine, donde la especie más abundante es introducida y una sola rapaz aparece en todos los monitoreos.
 
-Los próximos pasos son incorporar la tabla de eventos, sumar los datos de murciélagos del mismo predio, comparar la riqueza de especies entre monitoreos (con rarefacción) y mejorar el diseño de las figuras.
+Los próximos pasos son sumar los datos de murciélagos del mismo predio, comparar la riqueza de especies entre monitoreos (con rarefacción) y mejorar el diseño de las figuras.
+
+## Referencias {.unnumbered}
+
+::: {#refs}
+:::
